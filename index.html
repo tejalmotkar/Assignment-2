@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>assignment 2</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<script>
+		function Change_Calculator_Color()
+		{
+			document.getElementById("Calculator").style.backgroundColor = 'yellow';
+			document.getElementById("AlphabetsOnly").style.backgroundColor =  '#efefef';
+			document.getElementById("buttons").style.backgroundColor = '#efefef';
+		}
+		function Change_AlphabetsOnly_Color()
+		{
+			document.getElementById("Calculator").style.backgroundColor = '#efefef';
+			document.getElementById("AlphabetsOnly").style.backgroundColor =  'yellow';
+			document.getElementById("buttons").style.backgroundColor = '#efefef';
+		}
+		function Change_buttons_Color()
+		{
+			document.getElementById("Calculator").style.backgroundColor = '#efefef';
+			document.getElementById("AlphabetsOnly").style.backgroundColor =  '#efefef';
+			document.getElementById("buttons").style.backgroundColor = 'yellow';
+		}
+		function Clear_Color()
+		{
+			document.getElementById("Calculator").style.backgroundColor = '#efefef';
+			document.getElementById("AlphabetsOnly").style.backgroundColor =  '#efefef';
+			document.getElementById("buttons").style.backgroundColor = '#efefef';
+		}
+	</script>
+	<style type="text/css">
+		* {
+			font-family: Arial, Verdana, sans-serif;
+			color: #665544;
+			text-align: center;
+		}
+
+		body {
+			/* width: 960px; */
+			background-color: khaki;
+			
+		}
+
+		#content {
+			overflow: auto;
+			height: 100%;
+		}
+
+		#nav,
+		#footer {
+			background-color: #efefef;
+			padding: 10px;
+			margin: 10px;
+		}		
+
+		li {
+			display: inline;
+			padding: 10px;
+		}
+
+		#feature {
+			background-color: #efefef;
+			padding: 10px;
+			margin: 10px;
+			/* float: left; */
+		}
+
+		.vertical-menu {
+  width: 200px;
+}
+.vertical-menu a {
+  background-color: #eee;
+  color: black;
+  display: block;
+  padding: 12px;
+  text-decoration: none;
+}
+
+.vertical-menu a:hover {
+  background-color: #ccc;
+}
+
+.vertical-menu a.active {
+  background-color: black;
+  color: white;
+}
+	</style>
+	<script>
+		//cdn//    
+		$(document).ready(function () {
+			$("#btnAdd").on('click', function () {
+				Add();
+			});
+			$("#btnSubstract").on('click', function () {
+				Substract();
+			})
+			$("#btnMultiply").on('click', function () {
+				Multiply();
+			})
+			$("#btnDivide").on('click', function () {
+				Divide();
+			})
+		});
+		function Add() {
+			var no1 = parseInt($("#txtNo1").val());
+			var no2 = parseInt($("#txtNo2").val());
+			var result = no1 + no2;
+			alert("The result is " + result);
+		}
+		function Substract() {
+			var no1 = parseInt($("#txtNo1").val());
+			var no2 = parseInt($("#txtNo2").val());
+			var result = no1 - no2;
+			alert("The result is " + result);
+		}
+		function Multiply() {
+			var no1 = parseInt($("#txtNo1").val());
+			var no2 = parseInt($("#txtNo2").val());
+			var result = no1 * no2;
+			alert("The result is " + result);
+		}
+		function Divide() {
+			var no1 = parseInt($("#txtNo1").val());
+			var no2 = parseInt($("#txtNo2").val());
+			var result = no1 / no2;
+			alert("The result is " + result);
+		}    
+	</script>
+
+</head>
+
+<body>
+	<div id="header">
+		 <h1>assignment 2</h1>
+		<!--<div id="nav" style="float: left;">
+			<ul>
+				<li><a href="">Home</a></li>
+				<li><a href="">Products</a></li>
+				<li><a href="">Services</a></li>
+				<li><a href="">About</a></li>
+				<li><a href="">Contact</a></li>
+			</ul>
+		</div> -->
+	
+	</div>
+	<div id="content">
+		<div id="feature" class=".container-fluid">
+			<div class="row">
+				<div class="col-lg-3" id="Nav">
+					<div  class="vertical-menu" style="float: left;">
+							<a href="#" onclick="Clear_Color()" class="active">Home</a>
+							<a href="#" onclick="Change_Calculator_Color()" >Calculator</a>
+							<a href="#" onclick="Change_AlphabetsOnly_Color()" >Alphabets Only</a>
+							<a href="#" onclick="Change_buttons_Color()" > buttons</a>						
+						  </div>
+						</div>
+				<div id="Calculator" class="col-lg-3" style="text-align: left;">
+					<h2>Calculator</h2>
+					First Number:<input type="text" id="txtNo1" class="form-control"
+						placeholder="Enter first number"><br>
+					Second Number:<input type="text" id="txtNo2" placeholder="Enter second number"
+						class="form-control"><br>
+						<div class="btn-group">
+					<input type="button" id="btnAdd" value="Add" class="btn btn-primary btn-md">
+					<input type="button" id="btnSubstract" value="Substract" class="btn btn-primary btn-md">
+					<input type="button" id="btnMultiply" value="Multiply" class="btn btn-primary btn-md">
+					<input type="button" id="btnDivide" value="Divide" class="btn btn-primary btn-md">
+				</div>
+					<br>
+				</div>
+				<div class="col-lg-3" id="AlphabetsOnly" style="text-align: left;">
+					<br>
+					text box which takes only characters:
+					<input type="text" placeholder="Alphabets Only" class="form-control"
+						onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123)">
+					<br>
+				</div>
+				<div class="col-lg-3" id="buttons" style="text-align: left;">
+					various styles of buttons using bootstrap:
+					<br>
+					<button class="btn btn-primary" type="button">Primary</button>
+					<button class="btn btn-secondary" type="button">Secondary</button>
+					<button class="btn btn-success" type="button">Success</button>
+					<br>
+					<button class="btn btn-info" type="button">Info</button>
+					<button class="btn btn-warning" type="button">Warning</button>
+					<button class="btn btn-danger" type="button">Danger</button>
+					<br>
+					<button class="btn btn-light" type="button">Light</button>
+					<button class="btn btn-dark" type="button">Dark</button>
+					<button class="btn btn-link" type="button">Link</button>
+					<br>
+					<button type="button" class="btn btn-primary active">Active Primary</button>
+					<button type="button" class="btn btn-primary disabled">Disabled Primary</button>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<div id="footer">
+		<p>&copy; Copyright 2020</p>
+	</div>
+</body>
+
+</html>
